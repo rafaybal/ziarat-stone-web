@@ -33,16 +33,17 @@ const Header: React.FC = () => {
 
   return (
     <header 
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-white shadow-md py-2' 
+          ? 'bg-white shadow-md py-2 backdrop-blur-sm bg-white/90' 
           : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#home" className="flex items-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-marble-darkbrown">
+        <a href="#home" className="flex items-center group">
+          <h1 className="text-2xl md:text-3xl font-bold text-marble-darkbrown relative">
             ZairatMarbel
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-marble-brown group-hover:w-full transition-all duration-300"></span>
           </h1>
         </a>
 
@@ -52,9 +53,10 @@ const Header: React.FC = () => {
             <a
               key={item.name}
               href={item.link}
-              className="text-marble-darkbrown hover:text-marble-brown font-medium transition-colors"
+              className="text-marble-darkbrown hover:text-marble-brown font-medium transition-colors relative group"
             >
               {item.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-marble-brown group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </nav>
@@ -64,10 +66,10 @@ const Header: React.FC = () => {
           <Button 
             variant="ghost" 
             size="icon"
-            className="bg-green-500 hover:bg-green-600 text-white rounded-full h-10 w-10"
+            className="bg-green-500 hover:bg-green-600 text-white rounded-full h-10 w-10 transform transition-transform hover:scale-110 hover:rotate-12 duration-300"
             onClick={() => window.open('https://wa.me/yourphonenumber', '_blank')}
           >
-            <MessageCircle className="h-5 w-5" />
+            <MessageCircle className="h-5 w-5 animate-pulse" />
           </Button>
         </div>
 
@@ -82,14 +84,15 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 pt-20">
+        <div className="fixed inset-0 bg-white z-40 pt-20 animate-fade-in">
           <nav className="flex flex-col items-center space-y-6 pt-8">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.link}
-                className="text-xl text-marble-darkbrown hover:text-marble-brown font-medium"
+                className="text-xl text-marble-darkbrown hover:text-marble-brown font-medium transform hover:scale-110 transition-transform duration-300"
                 onClick={() => setMobileMenuOpen(false)}
+                style={{animationDelay: `${index * 0.1}s`}}
               >
                 {item.name}
               </a>
@@ -97,7 +100,7 @@ const Header: React.FC = () => {
             <Button 
               variant="ghost" 
               size="icon"
-              className="bg-green-500 hover:bg-green-600 text-white rounded-full h-12 w-12 mt-6"
+              className="bg-green-500 hover:bg-green-600 text-white rounded-full h-12 w-12 mt-6 animate-bounce"
               onClick={() => window.open('https://wa.me/yourphonenumber', '_blank')}
             >
               <MessageCircle className="h-6 w-6" />
