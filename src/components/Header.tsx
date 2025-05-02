@@ -41,9 +41,13 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center group">
-          <h1 className="text-2xl md:text-3xl font-bold text-marble-darkbrown relative">
+          <h1 className={`text-2xl md:text-3xl font-bold relative ${
+            isScrolled ? 'text-marble-darkbrown' : 'text-white text-shadow-sm'
+          }`}>
             ZairatMarbel
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-marble-brown group-hover:w-full transition-all duration-300"></span>
+            <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+              isScrolled ? 'bg-marble-brown' : 'bg-white'
+            } group-hover:w-full transition-all duration-300`}></span>
           </h1>
         </a>
 
@@ -53,10 +57,16 @@ const Header: React.FC = () => {
             <a
               key={item.name}
               href={item.link}
-              className="text-marble-darkbrown hover:text-marble-brown font-medium transition-colors relative group"
+              className={`font-medium transition-colors relative group ${
+                isScrolled 
+                  ? 'text-marble-darkbrown hover:text-marble-brown' 
+                  : 'text-white hover:text-marble-cream text-shadow-sm'
+              }`}
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-marble-brown group-hover:w-full transition-all duration-300"></span>
+              <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
+                isScrolled ? 'bg-marble-brown' : 'bg-white'
+              } group-hover:w-full transition-all duration-300`}></span>
             </a>
           ))}
         </nav>
@@ -66,7 +76,7 @@ const Header: React.FC = () => {
           <Button 
             variant="ghost" 
             size="icon"
-            className="bg-green-500 hover:bg-green-600 text-white rounded-full h-10 w-10 transform transition-transform hover:scale-110 hover:rotate-12 duration-300"
+            className="bg-green-500 hover:bg-green-600 text-white rounded-full h-10 w-10 transform transition-transform hover:scale-110 hover:rotate-12 duration-300 shadow-md"
             onClick={() => window.open('https://wa.me/yourphonenumber', '_blank')}
           >
             <MessageCircle className="h-5 w-5 animate-pulse" />
@@ -75,7 +85,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-marble-darkbrown" 
+          className={`md:hidden ${isScrolled ? 'text-marble-darkbrown' : 'text-white'}`}
           onClick={toggleMobileMenu}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -100,7 +110,7 @@ const Header: React.FC = () => {
             <Button 
               variant="ghost" 
               size="icon"
-              className="bg-green-500 hover:bg-green-600 text-white rounded-full h-12 w-12 mt-6 animate-bounce"
+              className="bg-green-500 hover:bg-green-600 text-white rounded-full h-12 w-12 mt-6 animate-bounce shadow-md"
               onClick={() => window.open('https://wa.me/yourphonenumber', '_blank')}
             >
               <MessageCircle className="h-6 w-6" />
