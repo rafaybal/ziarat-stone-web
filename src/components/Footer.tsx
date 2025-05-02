@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { WhatsApp, Facebook, Instagram, Phone, MapPin } from 'lucide-react';
+import { MessageCircle, Facebook, Instagram, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="bg-green-600 p-2 rounded-full hover:bg-green-700 transition-colors"
               >
-                <WhatsApp className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </a>
               <a 
                 href="https://facebook.com/" 
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
                 <span>+92 XXX XXXXXXX</span>
               </li>
               <li className="flex items-center">
-                <WhatsApp className="h-5 w-5 mr-2 text-marble-cream" />
+                <MessageCircle className="h-5 w-5 mr-2 text-marble-cream" />
                 <span>+92 XXX XXXXXXX</span>
               </li>
               <li className="flex items-center">

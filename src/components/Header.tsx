@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { WhatsApp, Menu, X } from 'lucide-react';
+import { MessageCircle, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header: React.FC = () => {
@@ -67,7 +67,7 @@ const Header: React.FC = () => {
             className="bg-green-500 hover:bg-green-600 text-white rounded-full h-10 w-10"
             onClick={() => window.open('https://wa.me/yourphonenumber', '_blank')}
           >
-            <WhatsApp className="h-5 w-5" />
+            <MessageCircle className="h-5 w-5" />
           </Button>
         </div>
 
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
               className="bg-green-500 hover:bg-green-600 text-white rounded-full h-12 w-12 mt-6"
               onClick={() => window.open('https://wa.me/yourphonenumber', '_blank')}
             >
-              <WhatsApp className="h-6 w-6" />
+              <MessageCircle className="h-6 w-6" />
             </Button>
           </nav>
         </div>

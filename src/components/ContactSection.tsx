@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { WhatsApp, Phone, MapPin } from 'lucide-react';
+import { MessageCircle, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -120,7 +120,7 @@ const ContactSection: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
                 <div className="bg-marble-cream rounded-full p-3 mb-4">
-                  <WhatsApp className="h-6 w-6 text-green-600" />
+                  <MessageCircle className="h-6 w-6 text-green-600" />
                 </div>
                 <h4 className="font-bold mb-1">WhatsApp</h4>
                 <p className="text-gray-600">+92 XXX XXXXXXX</p>
