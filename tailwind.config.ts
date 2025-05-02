@@ -23,6 +23,10 @@ export default {
       }
     },
     extend: {
+      fontFamily: {
+        'sans': ['Poppins', 'sans-serif'],
+        'serif': ['Playfair Display', 'serif'],
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -110,6 +114,22 @@ export default {
         "pulse-light": {
           "0%, 100%": { opacity: "0.6" },
           "50%": { opacity: "0.2" }
+        },
+        "shine": {
+          "0%": { backgroundPosition: "200% 0" },
+          "100%": { backgroundPosition: "-200% 0" }
+        },
+        "shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" }
+        },
+        "rotate-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
+        },
+        "bounce-gentle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" }
         }
       },
       animation: {
@@ -117,11 +137,16 @@ export default {
         "accordion-up": 'accordion-up 0.2s ease-out',
         "fade-in": 'fade-in 0.8s ease-out forwards',
         "float": 'float 3s ease-in-out infinite',
-        "pulse-light": 'pulse-light 4s ease-in-out infinite'
+        "pulse-light": 'pulse-light 4s ease-in-out infinite',
+        "shine": 'shine 3s linear infinite',
+        "shimmer": 'shimmer 2s ease-in-out infinite',
+        "rotate-slow": 'rotate-slow 20s linear infinite',
+        "bounce-gentle": 'bounce-gentle 3s ease-in-out infinite'
       },
       backgroundImage: {
         'marble-texture': "url('https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')",
-        'hero-pattern': "url('https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')",
+        'hero-pattern': "url('https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
+        'about-pattern': "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
         'light-overlay': "linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.1))"
       }
     }
