@@ -1,6 +1,7 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useInView } from '@/hooks/useInView';
 
 interface Product {
   id: number;
@@ -10,6 +11,9 @@ interface Product {
 }
 
 const ProductsSection: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { threshold: 0.2 });
+
   const products: Product[] = [
     {
       id: 1,
@@ -38,35 +42,44 @@ const ProductsSection: React.FC = () => {
   ];
 
   return (
-    <section id="products" className="py-20 marble-texture-light">
+    <section id="products" className="py-20 marble-texture-light" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className="section-heading animate-fade-in">Our Products</h2>
+        <h2 className={`section-heading ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>Our Products</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
           {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow transform hover:-translate-y-2 duration-300 opacity-0 animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'forwards' }}
+              className={`bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 card-3d ${
+                isInView 
+                  ? 'animate-fade-in opacity-0'
+                  : 'opacity-0'
+              }`}
+              style={{ 
+                animationDelay: `${index * 0.2}s`, 
+                animationFillMode: 'forwards',
+                transitionDelay: `${index * 0.1}s`
+              }}
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden image-hover">
                 <img 
                   src={product.image} 
                   alt={product.name}
-                  className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="p-6">
+              <div className="p-6 relative">
+                {/* Decorative element */}
+                <div className="absolute -top-3 right-6 w-6 h-6 bg-marble-brown rotate-45 transform -translate-y-1/2"></div>
+                
                 <h3 className="text-xl font-bold mb-2 text-marble-darkbrown">{product.name}</h3>
                 <p className="text-gray-600 mb-4">{product.description}</p>
                 <a 
                   href="#contact" 
                   className="inline-flex items-center text-marble-brown hover:text-marble-darkbrown font-medium group"
                 >
-                  <span className="relative">
+                  <span className="relative nav-link">
                     Inquire Now
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-marble-brown group-hover:w-full transition-all duration-300"></span>
                   </span>
                   <ArrowRight className="ml-2 h-4 w-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
