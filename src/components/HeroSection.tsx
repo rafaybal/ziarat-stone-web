@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
       id="home" 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
+        backgroundImage: "url('/lovable-uploads/5e14603b-3d13-4745-936f-62678afa9873.png')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         // Parallax effect
@@ -34,17 +34,17 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
       
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="opacity-0 animate-fade-in" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-shadow-lg">
             <span className="block transform transition-transform duration-700 hover:scale-105 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>Premium Quality</span>
             <span className="block transform transition-transform duration-700 hover:scale-105 animate-fade-in" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>Ziarat Marble</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-light animate-fade-in" style={{animationDelay: '1.2s', animationFillMode: 'forwards'}}>
-            Direct from KPK Quarries
+          <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-light animate-fade-in text-shadow" style={{animationDelay: '1.2s', animationFillMode: 'forwards'}}>
+            Elevate Your Spaces with Exquisite Marble Flooring
           </p>
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center">
             <a 
