@@ -22,19 +22,22 @@ const HeroSection: React.FC = () => {
     <section 
       id="home" 
       className="relative h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: "url('/lovable-uploads/5e14603b-3d13-4745-936f-62678afa9873.png')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        // Parallax effect
-        backgroundPositionY: `calc(50% + ${scrollPosition * 0.3}px)`
-      }}
     >
-      {/* Enhanced light effect overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60"></div>
+      {/* Background image with improved fit */}
+      <div 
+        className="absolute inset-0 w-full h-full"
+        style={{
+          backgroundImage: "url('/lovable-uploads/5e14603b-3d13-4745-936f-62678afa9873.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          transform: `translateY(${scrollPosition * 0.2}px)`,
+          transition: 'transform 0.3s ease-out'
+        }}
+      />
       
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60"></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
@@ -70,20 +73,19 @@ const HeroSection: React.FC = () => {
 
       {/* Enhanced animated light rays */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/10 rotate-45 transform -translate-x-full animate-[slide-in-right_8s_ease-in-out_infinite_alternate]"></div>
-        <div className="absolute top-0 right-1/4 w-1/2 h-full bg-white/10 -rotate-45 transform translate-x-full animate-[slide-in-right_8s_ease-in-out_infinite_alternate-reverse]"></div>
-        <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-marble-darkbrown/30 to-transparent"></div>
+        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/8 rotate-45 transform -translate-x-full animate-[slide-in-right_12s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute top-0 right-1/4 w-1/2 h-full bg-white/8 -rotate-45 transform translate-x-full animate-[slide-in-right_12s_ease-in-out_infinite_alternate-reverse]"></div>
       </div>
       
       {/* Floating particles with enhanced animation */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div 
             key={i} 
             className="absolute bg-white rounded-full opacity-30 animate-float" 
             style={{
-              width: Math.random() * 8 + 2 + 'px',
-              height: Math.random() * 8 + 2 + 'px',
+              width: Math.random() * 6 + 2 + 'px',
+              height: Math.random() * 6 + 2 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
               animationDuration: Math.random() * 15 + 5 + 's',
