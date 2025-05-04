@@ -61,15 +61,19 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        // Custom colors for marble website
-        marble: {
-          white: '#f8f8f8',
-          cream: '#e8e4d9',
-          beige: '#d8cfc1',
-          taupe: '#b3a492',
-          brown: '#8c7a5b',
-          darkbrown: '#5c4d35',
-        },
+        // Custom blue theme colors (replacing marble theme)
+        blue: {
+          50: '#f0f5ff',
+          100: '#e0eaff',
+          200: '#c7d9ff',
+          300: '#a4bfff',
+          400: '#799cff',
+          500: '#507eff',
+          600: '#3a65f8',
+          700: '#2f51e8',
+          800: '#2742bc',
+          900: '#253993',
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -144,9 +148,8 @@ export default {
         "bounce-gentle": 'bounce-gentle 3s ease-in-out infinite'
       },
       backgroundImage: {
-        'marble-texture': "url('https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60')",
-        'hero-pattern': "url('https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
-        'about-pattern': "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
+        'blue-gradient': "linear-gradient(135deg, rgba(244,247,254,1) 0%, rgba(215,227,244,1) 100%)",
+        'hero-pattern': "url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
         'light-overlay': "linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.1))"
       }
     }

@@ -21,9 +21,9 @@ const HeroSection: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-blue-100 to-blue-200"
     >
-      {/* Background image with improved fit */}
+      {/* Background image with parallax effect */}
       <div 
         className="absolute inset-0 w-full h-full"
         style={{
@@ -31,23 +31,24 @@ const HeroSection: React.FC = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          transform: `translateY(${scrollPosition * 0.2}px)`,
+          opacity: '0.85',
+          transform: `translateY(${scrollPosition * 0.15}px)`,
           transition: 'transform 0.3s ease-out'
         }}
       />
       
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60"></div>
+      {/* Modern gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-blue-900/50 via-blue-600/30 to-blue-900/40"></div>
       
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="opacity-0 animate-fade-in" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-shadow-lg">
-            <span className="block transform transition-transform duration-700 hover:scale-105 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>Premium Quality</span>
-            <span className="block transform transition-transform duration-700 hover:scale-105 animate-fade-in" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>Ziarat Marble</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 text-shadow-lg">
+            <span className="block transform transition-transform duration-700 hover:scale-105 animate-fade-in" style={{animationDelay: '0.4s', animationFillMode: 'forwards'}}>Exquisite</span>
+            <span className="block transform transition-transform duration-700 hover:scale-105 animate-fade-in text-blue-200" style={{animationDelay: '0.8s', animationFillMode: 'forwards'}}>Ziarat Marble</span>
           </h1>
           <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto font-light animate-fade-in text-shadow" style={{animationDelay: '1.2s', animationFillMode: 'forwards'}}>
-            Elevate Your Spaces with Exquisite Marble Flooring
+            Transform Your Space with Luxury Marble Solutions
           </p>
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center">
             <a 
@@ -56,7 +57,7 @@ const HeroSection: React.FC = () => {
               style={{animationDelay: '1.4s', animationFillMode: 'forwards'}}
             >
               <span className="absolute inset-0 w-full h-full bg-white/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-              View Products
+              Explore Collection
               <ArrowRight className="ml-2 h-5 w-5 animate-bounce-gentle" />
             </a>
             <a 
@@ -64,25 +65,25 @@ const HeroSection: React.FC = () => {
               className="btn-secondary transition-all duration-300 transform hover:translate-y-[-5px] hover:shadow-lg relative group overflow-hidden animate-fade-in"
               style={{animationDelay: '1.6s', animationFillMode: 'forwards'}}
             >
-              <span className="absolute inset-0 w-full h-full bg-marble-brown/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-              Contact Us
+              <span className="absolute inset-0 w-full h-full bg-blue-500/10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+              Get in Touch
             </a>
           </div>
         </div>
       </div>
 
-      {/* Enhanced animated light rays */}
+      {/* Modern animated geometric shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/8 rotate-45 transform -translate-x-full animate-[slide-in-right_12s_ease-in-out_infinite_alternate]"></div>
-        <div className="absolute top-0 right-1/4 w-1/2 h-full bg-white/8 -rotate-45 transform translate-x-full animate-[slide-in-right_12s_ease-in-out_infinite_alternate-reverse]"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl animate-pulse-light"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-blue-300/15 blur-3xl animate-pulse-light" style={{animationDelay: '1.5s'}}></div>
       </div>
       
-      {/* Floating particles with enhanced animation */}
+      {/* Modern floating particles */}
       <div className="absolute inset-0 pointer-events-none">
-        {[...Array(10)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <div 
             key={i} 
-            className="absolute bg-white rounded-full opacity-30 animate-float" 
+            className="absolute bg-blue-200 rounded-full opacity-40 animate-float" 
             style={{
               width: Math.random() * 6 + 2 + 'px',
               height: Math.random() * 6 + 2 + 'px',
@@ -96,7 +97,7 @@ const HeroSection: React.FC = () => {
         ))}
       </div>
 
-      {/* Mouse scroll indicator */}
+      {/* Modern scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-8 h-12 border-2 border-white/70 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-[fade-in_1.5s_ease-in-out_infinite_alternate]"></div>

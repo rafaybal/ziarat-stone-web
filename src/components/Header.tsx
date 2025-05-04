@@ -42,11 +42,11 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center group">
           <h1 className={`text-2xl md:text-3xl font-bold relative ${
-            isScrolled ? 'text-marble-darkbrown' : 'text-white text-shadow-sm'
+            isScrolled ? 'text-primary' : 'text-white text-shadow-sm'
           }`}>
             ZairatMarbel
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-              isScrolled ? 'bg-marble-brown' : 'bg-white'
+              isScrolled ? 'bg-primary' : 'bg-white'
             } group-hover:w-full transition-all duration-300`}></span>
           </h1>
         </a>
@@ -59,13 +59,13 @@ const Header: React.FC = () => {
               href={item.link}
               className={`font-medium transition-colors relative group ${
                 isScrolled 
-                  ? 'text-marble-darkbrown hover:text-marble-brown' 
-                  : 'text-white hover:text-marble-cream text-shadow-sm'
+                  ? 'text-gray-700 hover:text-primary' 
+                  : 'text-white hover:text-blue-200 text-shadow-sm'
               }`}
             >
               {item.name}
               <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-                isScrolled ? 'bg-marble-brown' : 'bg-white'
+                isScrolled ? 'bg-primary' : 'bg-white'
               } group-hover:w-full transition-all duration-300`}></span>
             </a>
           ))}
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className={`md:hidden ${isScrolled ? 'text-marble-darkbrown' : 'text-white'}`}
+          className={`md:hidden ${isScrolled ? 'text-gray-700' : 'text-white'}`}
           onClick={toggleMobileMenu}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -100,7 +100,7 @@ const Header: React.FC = () => {
               <a
                 key={item.name}
                 href={item.link}
-                className="text-xl text-marble-darkbrown hover:text-marble-brown font-medium transform hover:scale-110 transition-transform duration-300"
+                className="text-xl text-primary hover:text-blue-700 font-medium transform hover:scale-110 transition-transform duration-300"
                 onClick={() => setMobileMenuOpen(false)}
                 style={{animationDelay: `${index * 0.1}s`}}
               >

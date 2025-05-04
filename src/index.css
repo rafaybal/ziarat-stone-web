@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 36 33% 97%;
-    --foreground: 20 14% 20%;
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 14% 20%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 14% 20%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 32 30% 26%;
-    --primary-foreground: 36 33% 97%;
+    --primary: 224 76% 48%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 36 20% 92%;
-    --secondary-foreground: 20 14% 20%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 36 20% 92%;
-    --muted-foreground: 20 8% 46%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 32 30% 90%;
-    --accent-foreground: 20 14% 20%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 36 33% 97%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 20 14% 85%;
-    --input: 20 14% 85%;
-    --ring: 32 30% 26%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 76% 48%;
 
     --radius: 0.5rem;
   }
@@ -53,7 +53,7 @@
   }
 
   h1, h2, h3, h4, h5 {
-    @apply font-serif tracking-tight;
+    @apply font-sans tracking-tight font-bold;
   }
 
   section {
@@ -61,22 +61,21 @@
   }
   
   .section-heading {
-    @apply text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-center relative font-serif;
+    @apply text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-center relative;
   }
   
   .section-heading::after {
     content: '';
-    @apply block w-24 h-1 bg-marble-brown mx-auto mt-4 animate-pulse-light;
+    @apply block w-24 h-1 bg-primary mx-auto mt-4 animate-pulse-light;
   }
 
   /* Enhanced button styles */
   .btn-primary {
-    @apply bg-marble-brown text-white hover:bg-marble-darkbrown transition-all px-6 py-3 rounded-md text-lg font-medium inline-flex items-center justify-center shadow-md hover:shadow-xl;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    @apply bg-primary text-white hover:bg-primary/80 transition-all px-6 py-3 rounded-md text-lg font-medium inline-flex items-center justify-center shadow-md hover:shadow-xl;
   }
   
   .btn-secondary {
-    @apply bg-white text-marble-brown border border-marble-brown hover:bg-marble-cream transition-all px-6 py-3 rounded-md text-lg font-medium inline-flex items-center justify-center shadow-md hover:shadow-xl;
+    @apply bg-white text-primary border border-primary hover:bg-blue-50 transition-all px-6 py-3 rounded-md text-lg font-medium inline-flex items-center justify-center shadow-md hover:shadow-xl;
   }
   
   .marble-card {
@@ -84,14 +83,14 @@
   }
   
   .marble-texture-light {
-    @apply bg-marble-cream bg-opacity-30 relative;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zm-24.596 0l-7.486 7.485 1.415 1.414 7.9-7.9h-1.83zm16.825 0l-9.9 9.9 1.414 1.414L29.243 0h-1.7zm-9.9 0l-9.9 9.9 1.415 1.414L21.544 0h-1.7zm-8.198 0l-9.9 9.9 1.414 1.414L13.346 0H6.444zm-8.198 0L-.005 8.187l1.415 1.414 8.2-8.2H0zm8.2 0L16.385 8.187 14.97 9.6l-8.2-8.2H8.2zm64.748 0l-8.2 8.2 1.414 1.414L74.97 0h-2.02zm-64.75 0l-8.195 8.196 1.414 1.415 8.2-8.2h-1.42zm56.55 0l-8.196 8.196 1.414 1.415 8.2-8.2h-1.42zm-48.35 0l-8.196 8.196 1.414 1.415 8.2-8.2h-1.42zm32.235 0l-8.196 8.196 1.414 1.415 8.2-8.2h-1.42zM32.23 0L24.04 8.195l1.414 1.415 8.2-8.2H32.23zM72.97 0L64.78 8.196l1.415 1.414 8.2-8.2h-1.42zm-8.196 0l-8.195 8.196 1.414 1.415 8.2-8.2h-1.42zm-48.35 0L8.23 8.196l1.414 1.415 8.2-8.2h-1.42zm-8.2 0L0 8.196 1.414 9.61l8.2-8.2h-1.42zm64.74 0l-8.197 8.196 1.415 1.415 8.198-8.2h-1.42zm-48.35 0L16.23 8.196l1.414 1.415 8.2-8.2h-1.42zm-8.2 0L0 8.196 1.414 9.61l8.2-8.2h-1.42zm48.35 0l-8.2 8.196 1.415 1.415 8.2-8.2h-1.42zM16.23 0L8.04 8.196l1.414 1.415 8.2-8.2h-1.42zm32.235 0l-8.2 8.196 1.415 1.415 8.2-8.2h-1.42zM0 0l8.196 8.196L6.78 9.61 0 2.83V0zm16.23 0L24.424 8.2 23.01 9.61 14.81 1.41 16.23 0zm16.235 0L40.66 8.2 39.243 9.61l-8.2-8.2H32.47zm-16.236 0l8.195 8.196L23.01 9.61l-8.2-8.2h1.42zm-8.2 0L16.23 8.196 14.816 9.61l-8.2-8.2h1.42zM0 0l8.196 8.196L6.78 9.61 0 2.83V0z' fill='%23d8cfc1' fill-opacity='0.1'/%3E%3C/svg%3E");
+    @apply bg-secondary bg-opacity-30 relative;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zm-24.596 0l-7.486 7.485 1.415 1.414 7.9-7.9h-1.83zm16.825 0l-9.9 9.9 1.414 1.414L29.243 0h-1.7zm-9.9 0l-9.9 9.9 1.415 1.414L21.544 0h-1.7zm-8.198 0l-9.9 9.9 1.414 1.414L13.346 0H6.444zm-8.198 0L-.005 8.187l1.415 1.414 8.2-8.2H0zm8.2 0L16.385 8.187 14.97 9.6l-8.2-8.2H8.2zm64.748 0l-8.2 8.2 1.414 1.414L74.97 0h-2.02zm-64.75 0l-8.195 8.196 1.414 1.415 8.2-8.2h-1.42zm56.55 0l-8.196 8.196 1.414 1.415 8.2-8.2h-1.42zm-48.35 0l-8.196 8.196 1.414 1.415 8.2-8.2h-1.42zm32.235 0l-8.196 8.196 1.414 1.415 8.2-8.2h-1.42zM32.23 0L24.04 8.195l1.414 1.415 8.2-8.2H32.23zM72.97 0L64.78 8.196l1.415 1.414 8.2-8.2h-1.42zm-8.196 0l-8.195 8.196 1.414 1.415 8.2-8.2h-1.42zm-48.35 0L8.23 8.196l1.414 1.415 8.2-8.2h-1.42zm-8.2 0L0 8.196 1.414 9.61l8.2-8.2h-1.42zm64.74 0l-8.197 8.196 1.415 1.415 8.198-8.2h-1.42zm-48.35 0L16.23 8.196l1.414 1.415 8.2-8.2h-1.42zm-8.2 0L0 8.196 1.414 9.61l8.2-8.2h-1.42zm48.35 0l-8.2 8.196 1.415 1.415 8.2-8.2h-1.42zM16.23 0L8.04 8.196l1.414 1.415 8.2-8.2h-1.42zm32.235 0l-8.2 8.196 1.415 1.415 8.2-8.2h-1.42zM0 0l8.196 8.196L6.78 9.61 0 2.83V0zm16.23 0L24.424 8.2 23.01 9.61 14.81 1.41 16.23 0zm16.235 0L40.66 8.2 39.243 9.61l-8.2-8.2H32.47zm-16.236 0l8.195 8.196L23.01 9.61l-8.2-8.2h1.42zm-8.2 0L16.23 8.196 14.816 9.61l-8.2-8.2h1.42zM0 0l8.196 8.196L6.78 9.61 0 2.83V0z' fill='%23dbeafe' fill-opacity='0.4'/%3E%3C/svg%3E");
   }
 
   /* New gradient background */
   .marble-gradient {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, rgba(248,248,248,1) 0%, rgba(232,228,217,1) 100%);
+    background: linear-gradient(135deg, rgba(244,247,254,1) 0%, rgba(215,227,244,1) 100%);
   }
 
   /* Glowing effect */
@@ -102,7 +101,7 @@
   .glow::after {
     content: '';
     @apply absolute inset-0 rounded-full blur-lg opacity-50;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle at center, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0) 70%);
   }
   
   /* Shimmering border */
@@ -114,7 +113,7 @@
   .shimmer-border::before {
     content: '';
     @apply absolute inset-0 -z-10 rounded-lg animate-shine;
-    background: linear-gradient(90deg, #e8e4d9, #ffffff, #e8e4d9);
+    background: linear-gradient(90deg, #dbeafe, #ffffff, #dbeafe);
     background-size: 200% 100%;
   }
 

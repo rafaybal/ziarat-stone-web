@@ -71,7 +71,7 @@ const StatsSection: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 bg-marble-darkbrown relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 bg-blue-600 bg-gradient-to-br from-blue-600 to-blue-800 relative overflow-hidden">
       {/* Light ray animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/5 rotate-45 transform -translate-x-full animate-[slide-in-right_8s_ease-in-out_infinite_alternate]"></div>
@@ -85,11 +85,11 @@ const StatsSection: React.FC = () => {
               className="transform transition-transform duration-500 hover:scale-105 opacity-0 animate-fade-in" 
               style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'forwards' }}
             >
-              <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm border border-white/5 h-full">
+              <div className="bg-white/15 rounded-lg p-6 backdrop-blur-sm border border-white/10 h-full shadow-lg hover:shadow-xl transition-all">
                 <div className="text-3xl md:text-4xl font-bold text-white mb-2">
                   {isVisible ? <CounterAnimation stat={stat} /> : '0'}
                 </div>
-                <div className="text-marble-cream font-medium">{stat.label}</div>
+                <div className="text-blue-100 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
