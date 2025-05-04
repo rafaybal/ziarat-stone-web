@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useInView } from '@/hooks/useInView';
 
 interface Stat {
   id: number;
@@ -9,8 +10,8 @@ interface Stat {
 }
 
 const StatsSection: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { threshold: 0.2 });
   
   const stats: Stat[] = [
     { id: 1, value: 10, label: "Years Experience", suffix: "+" },
@@ -19,33 +20,11 @@ const StatsSection: React.FC = () => {
     { id: 4, value: 5, label: "Quarries Owned", suffix: "" }
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   const CounterAnimation = ({ stat }: { stat: Stat }) => {
     const [count, setCount] = useState(0);
     
     useEffect(() => {
-      if (!isVisible) return;
+      if (!isInView) return;
       
       let start = 0;
       const end = stat.value;
@@ -63,7 +42,7 @@ const StatsSection: React.FC = () => {
       }, 16);
       
       return () => clearInterval(timer);
-    }, [isVisible, stat.value]);
+    }, [isInView, stat.value]);
     
     return (
       <span>{count}{stat.suffix}</span>
@@ -82,12 +61,12 @@ const StatsSection: React.FC = () => {
           {stats.map((stat, index) => (
             <div 
               key={stat.id} 
-              className="transform transition-transform duration-500 hover:scale-105 opacity-0 animate-fade-in" 
+              className={`transform transition-transform duration-500 hover:scale-105 opacity-0 ${isInView ? 'animate-fade-in' : ''}`}
               style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'forwards' }}
             >
               <div className="bg-white/15 rounded-lg p-6 backdrop-blur-sm border border-white/10 h-full shadow-lg hover:shadow-xl transition-all">
                 <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {isVisible ? <CounterAnimation stat={stat} /> : '0'}
+                  {isInView ? <CounterAnimation stat={stat} /> : '0'}
                 </div>
                 <div className="text-blue-100 font-medium">{stat.label}</div>
               </div>
