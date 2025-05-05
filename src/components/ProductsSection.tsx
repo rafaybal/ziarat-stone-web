@@ -1,9 +1,9 @@
 
-import React, { useRef } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useRef, useState } from 'react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useInView } from '@/hooks/useInView';
 import { Card, CardContent } from '@/components/ui/card';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink } from '@/components/ui/pagination';
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext } from '@/components/ui/pagination';
 
 interface Product {
   id: number;
@@ -15,8 +15,10 @@ interface Product {
 const ProductsSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { threshold: 0.2 });
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 8;
 
-  const products: Product[] = [
+  const allProducts: Product[] = [
     {
       id: 1,
       name: "Afghan White Marble",
@@ -64,13 +66,72 @@ const ProductsSection: React.FC = () => {
       name: "Golden Travertine",
       description: "Luxurious golden travertine with natural patterns and excellent durability.",
       image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Golden-Travertine.jpg"
+    },
+    {
+      id: 9,
+      name: "Verona Marble",
+      description: "Classic Italian-inspired Verona marble with distinctive veining.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Verona-Marble.jpg"
+    },
+    {
+      id: 10,
+      name: "Asian Blue Marble",
+      description: "Stunning blue marble with unique veining patterns from Asia.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Blue-Ocean-Marble.jpg"
+    },
+    {
+      id: 11,
+      name: "Emerald Green Marble",
+      description: "Luxurious green marble with emerald tones for a distinctive look.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Green-Onyx.jpg"
+    },
+    {
+      id: 12,
+      name: "Silver Travertine",
+      description: "Elegant silver travertine with natural patterns and textures.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Silver-Travertine-Marble.jpg"
+    },
+    {
+      id: 13,
+      name: "Botticino Marble",
+      description: "Fine-grained cream colored marble with subtle veining.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Botticino-1.jpg"
+    },
+    {
+      id: 14,
+      name: "Persian Umber Marble",
+      description: "Rich brown marble with distinctive patterns from Persian regions.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Persian-Travertine.jpg"
+    },
+    {
+      id: 15,
+      name: "Ruby Red Marble",
+      description: "Vibrant red marble with distinctive veining and high polish finish.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Red-Travertine.jpg"
+    },
+    {
+      id: 16,
+      name: "Sahara Beige Marble",
+      description: "Warm beige marble inspired by the colors of the Sahara desert.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Sahara-Beige-Marble.jpg"
     }
   ];
+
+  // Calculate pagination
+  const totalPages = Math.ceil(allProducts.length / productsPerPage);
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  // Change page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const nextPage = () => setCurrentPage(prev => (prev < totalPages ? prev + 1 : prev));
+  const prevPage = () => setCurrentPage(prev => (prev > 1 ? prev - 1 : prev));
 
   return (
     <section id="products" className="py-20 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className={`section-heading ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>
+        <h2 className={`section-heading text-3xl font-bold text-blue-800 text-center mb-4 ${isInView ? 'animate-fade-in' : 'opacity-0'}`}>
           Our Premium Collection
         </h2>
         <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
@@ -78,7 +139,7 @@ const ProductsSection: React.FC = () => {
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
+          {currentProducts.map((product, index) => (
             <div 
               key={product.id} 
               className={`group transition-all duration-500 ${
@@ -131,18 +192,29 @@ const ProductsSection: React.FC = () => {
         <div className="mt-12">
           <Pagination>
             <PaginationContent>
-              <PaginationItem>
-                <PaginationLink href="#" isActive>1</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">2</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">3</PaginationLink>
-              </PaginationItem>
-              <PaginationItem>
-                <PaginationLink href="#">View All</PaginationLink>
-              </PaginationItem>
+              {currentPage > 1 && (
+                <PaginationItem>
+                  <PaginationPrevious href="#" onClick={(e) => { e.preventDefault(); prevPage(); }} />
+                </PaginationItem>
+              )}
+              
+              {Array.from({ length: totalPages }, (_, i) => (
+                <PaginationItem key={i}>
+                  <PaginationLink 
+                    href="#" 
+                    isActive={currentPage === i + 1} 
+                    onClick={(e) => { e.preventDefault(); paginate(i + 1); }}
+                  >
+                    {i + 1}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              
+              {currentPage < totalPages && (
+                <PaginationItem>
+                  <PaginationNext href="#" onClick={(e) => { e.preventDefault(); nextPage(); }} />
+                </PaginationItem>
+              )}
             </PaginationContent>
           </Pagination>
         </div>
