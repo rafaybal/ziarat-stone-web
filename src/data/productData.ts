@@ -77,7 +77,7 @@ export const products: Product[] = [
     id: 12,
     name: "OSHNIC",
     description: "Premium quality marble with unique patterns and excellent durability.",
-    image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Oshnic-Marble.jpg"
+    image: "/lovable-uploads/b5958e37-748b-41fd-a39d-3b1fcb7f4f01.png" 
   },
   {
     id: 13,
