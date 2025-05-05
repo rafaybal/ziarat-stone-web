@@ -114,6 +114,54 @@ const ProductsSection: React.FC = () => {
       name: "Sahara Beige Marble",
       description: "Warm beige marble inspired by the colors of the Sahara desert.",
       image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Sahara-Beige-Marble.jpg"
+    },
+    {
+      id: 17,
+      name: "Indus Gold Marble",
+      description: "Beautiful gold marble with rich warm tones and natural patterns.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Indus-Gold-Marble.jpg"
+    },
+    {
+      id: 18,
+      name: "Black Zebra Marble",
+      description: "Dramatic black marble with distinctive white veining resembling zebra patterns.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Black-Zebra-Marble.jpg"
+    },
+    {
+      id: 19,
+      name: "Rosalia Pink Marble",
+      description: "Delicate pink marble with subtle veining and warm undertones.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Rosalia-Pink-Marble.jpg"
+    },
+    {
+      id: 20,
+      name: "Golden Flower Marble",
+      description: "Stunning marble with golden floral patterns and premium finish.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Golden-Flower-Marble.jpg"
+    },
+    {
+      id: 21,
+      name: "Statuario Blue Marble",
+      description: "Luxurious blue marble with distinctive white veining patterns.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Ocean-Blue-1.jpg"
+    },
+    {
+      id: 22,
+      name: "Breccia Aurora",
+      description: "Multicolored marble with complex patterns and exceptional beauty.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Breccia-Aurora.jpg"
+    },
+    {
+      id: 23,
+      name: "Teak Wood Stone",
+      description: "Natural stone with wood-like appearance and excellent durability.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Teak-Wood-Stone.jpg"
+    },
+    {
+      id: 24,
+      name: "Emperador Light",
+      description: "Light brown marble with delicate veining and warm undertones.",
+      image: "http://pakistanmarbles.com/wp-content/uploads/2023/08/Emperador-Light.jpg"
     }
   ];
 
