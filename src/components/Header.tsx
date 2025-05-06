@@ -35,18 +35,18 @@ const Header: React.FC = () => {
     <header 
       className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-white shadow-md py-2 backdrop-blur-sm bg-white/90' 
+          ? 'bg-black-900/90 shadow-md py-2 backdrop-blur-sm' 
           : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#home" className="flex items-center group">
           <h1 className={`text-2xl md:text-3xl font-bold relative ${
-            isScrolled ? 'text-primary' : 'text-white text-shadow-sm'
+            isScrolled ? 'text-gold-400' : 'text-white text-shadow-sm'
           }`}>
             ZairatMarbel
             <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-              isScrolled ? 'bg-primary' : 'bg-white'
+              isScrolled ? 'bg-gold-400' : 'bg-white'
             } group-hover:w-full transition-all duration-300`}></span>
           </h1>
         </a>
@@ -59,13 +59,13 @@ const Header: React.FC = () => {
               href={item.link}
               className={`font-medium transition-colors relative group ${
                 isScrolled 
-                  ? 'text-gray-700 hover:text-primary' 
-                  : 'text-white hover:text-blue-200 text-shadow-sm'
+                  ? 'text-gray-300 hover:text-gold-400' 
+                  : 'text-white hover:text-gold-200 text-shadow-sm'
               }`}
             >
               {item.name}
               <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${
-                isScrolled ? 'bg-primary' : 'bg-white'
+                isScrolled ? 'bg-gold-400' : 'bg-white'
               } group-hover:w-full transition-all duration-300`}></span>
             </a>
           ))}
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className={`md:hidden ${isScrolled ? 'text-gray-700' : 'text-white'}`}
+          className={`md:hidden ${isScrolled ? 'text-gold-400' : 'text-white'}`}
           onClick={toggleMobileMenu}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -94,13 +94,13 @@ const Header: React.FC = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 pt-20 animate-fade-in">
+        <div className="fixed inset-0 bg-black-900 z-40 pt-20 animate-fade-in">
           <nav className="flex flex-col items-center space-y-6 pt-8">
             {navItems.map((item, index) => (
               <a
                 key={item.name}
                 href={item.link}
-                className="text-xl text-primary hover:text-blue-700 font-medium transform hover:scale-110 transition-transform duration-300"
+                className="text-xl text-gold-400 hover:text-gold-300 font-medium transform hover:scale-110 transition-transform duration-300"
                 onClick={() => setMobileMenuOpen(false)}
                 style={{animationDelay: `${index * 0.1}s`}}
               >

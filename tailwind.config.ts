@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,18 +60,31 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
-        // Custom blue theme colors (replacing marble theme)
-        blue: {
-          50: '#f0f5ff',
-          100: '#e0eaff',
-          200: '#c7d9ff',
-          300: '#a4bfff',
-          400: '#799cff',
-          500: '#507eff',
-          600: '#3a65f8',
-          700: '#2f51e8',
-          800: '#2742bc',
-          900: '#253993',
+        // Black theme colors
+        black: {
+          50: '#f0f0f0',
+          100: '#d2d2d2',
+          200: '#b4b4b4',
+          300: '#969696',
+          400: '#787878',
+          500: '#5a5a5a',
+          600: '#3c3c3c',
+          700: '#2a2a2a',
+          800: '#1a1a1a',
+          900: '#0a0a0a',
+          950: '#050505',
+        },
+        gold: {
+          50: '#fbf8e7',
+          100: '#f7efc3',
+          200: '#f0df8a',
+          300: '#e8c542',
+          400: '#e3b01f',
+          500: '#d4961d',
+          600: '#bc7519',
+          700: '#9c5717',
+          800: '#82431a',
+          900: '#6d391a',
         }
       },
       borderRadius: {
@@ -134,6 +146,18 @@ export default {
         "bounce-gentle": {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-5px)" }
+        },
+        "shimmer-horizontal": {
+          "0%": { backgroundPosition: "-100% 0" },
+          "100%": { backgroundPosition: "100% 0" }
+        },
+        "pulse-gold": {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "0.2" }
+        },
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-15px)" }
         }
       },
       animation: {
@@ -145,12 +169,18 @@ export default {
         "shine": 'shine 3s linear infinite',
         "shimmer": 'shimmer 2s ease-in-out infinite',
         "rotate-slow": 'rotate-slow 20s linear infinite',
-        "bounce-gentle": 'bounce-gentle 3s ease-in-out infinite'
+        "bounce-gentle": 'bounce-gentle 3s ease-in-out infinite',
+        "shimmer-horizontal": 'shimmer-horizontal 3s ease-in-out infinite',
+        "pulse-gold": 'pulse-gold 4s ease-in-out infinite',
+        "float-slow": 'float-slow 6s ease-in-out infinite'
       },
       backgroundImage: {
         'blue-gradient': "linear-gradient(135deg, rgba(244,247,254,1) 0%, rgba(215,227,244,1) 100%)",
+        'black-gradient': "linear-gradient(135deg, rgba(26,26,26,1) 0%, rgba(10,10,10,1) 100%)",
+        'gold-gradient': "linear-gradient(135deg, rgba(228,197,66,1) 0%, rgba(188,117,25,1) 100%)",
         'hero-pattern': "url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
-        'light-overlay': "linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.1))"
+        'light-overlay': "linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.2), rgba(255,255,255,0.1))",
+        'dark-overlay': "linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4), rgba(0,0,0,0.8))"
       }
     }
   },

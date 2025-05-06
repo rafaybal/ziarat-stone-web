@@ -50,10 +50,10 @@ const StatsSection: React.FC = () => {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 bg-blue-600 bg-gradient-to-br from-blue-600 to-blue-800 relative overflow-hidden">
-      {/* Light ray animation */}
+    <section ref={sectionRef} className="py-16 bg-black-800 relative overflow-hidden">
+      {/* Gold ray animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-white/5 rotate-45 transform -translate-x-full animate-[slide-in-right_8s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute top-0 left-1/4 w-1/2 h-full bg-gold-400/5 rotate-45 transform -translate-x-full animate-[slide-in-right_8s_ease-in-out_infinite_alternate]"></div>
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
@@ -64,11 +64,11 @@ const StatsSection: React.FC = () => {
               className={`transform transition-transform duration-500 hover:scale-105 opacity-0 ${isInView ? 'animate-fade-in' : ''}`}
               style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'forwards' }}
             >
-              <div className="bg-white/15 rounded-lg p-6 backdrop-blur-sm border border-white/10 h-full shadow-lg hover:shadow-xl transition-all">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+              <div className="bg-black-900/60 rounded-lg p-6 backdrop-blur-sm border border-gold-800/20 h-full shadow-lg hover:shadow-xl transition-all hover:border-gold-800/40">
+                <div className="text-3xl md:text-4xl font-bold text-gold-400 mb-2">
                   {isInView ? <CounterAnimation stat={stat} /> : '0'}
                 </div>
-                <div className="text-blue-100 font-medium">{stat.label}</div>
+                <div className="text-gray-400 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
